@@ -1,0 +1,46 @@
+{
+  "engine": "Mukamal Visual Capture Engine v2.0",
+  "timestamp": "2026-03-04T22:51:17.848Z",
+  "strategy": "native",
+  "browsers": [
+    "safari"
+  ],
+  "viewportSettings": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "label": "desktop-1440x900"
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812,
+      "dpr": 3,
+      "label": "mobile-375x812"
+    }
+  },
+  "targets": 1,
+  "viewports": [
+    "mobile"
+  ],
+  "captures": [
+    {
+      "url": "https://phantom.app",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/phantom-app_mobile-375x812_safari_2026-03-04T22-51-03.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "success": 1,
+    "blocked": 0,
+    "failed": 0,
+    "cancelled": 0
+  }
+}

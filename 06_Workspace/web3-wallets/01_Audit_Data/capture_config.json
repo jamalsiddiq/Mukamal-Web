@@ -1,0 +1,35 @@
+{
+  "project_id": "web3-wallets",
+  "mandate_id": "M-001",
+  "vertical": "Web3 Wallets",
+  "ux_tier": "Seed Phrase Onboarding",
+  "viewports": [
+    "desktop",
+    "mobile"
+  ],
+  "browser": "chrome",
+  "strategy": "native",
+  "delay": 5,
+  "targets": [
+    {
+      "url": "https://metamask.io",
+      "brand": "web3-wallets"
+    },
+    {
+      "url": "https://phantom.app",
+      "brand": "web3-wallets"
+    },
+    {
+      "url": "https://www.coinbase.com/wallet",
+      "brand": "web3-wallets"
+    },
+    {
+      "url": "https://trustwallet.com",
+      "brand": "web3-wallets"
+    },
+    {
+      "url": "https://rainbow.me",
+      "brand": "web3-wallets"
+    }
+  ]
+}

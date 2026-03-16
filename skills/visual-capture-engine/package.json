@@ -1,0 +1,17 @@
+{
+  "name": "visual-capture-engine",
+  "version": "2.0.0",
+  "description": "Native macOS screenshot engine with real-browser rendering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.58.2",
+    "ws": "^8.19.0"
+  }
+}

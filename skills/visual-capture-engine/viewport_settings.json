@@ -1,0 +1,14 @@
+{
+    "desktop": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "label": "desktop-1440x900"
+    },
+    "mobile": {
+        "width": 375,
+        "height": 812,
+        "dpr": 3,
+        "label": "mobile-375x812"
+    }
+}

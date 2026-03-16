@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 UX Report 2026 | Mukamal Intelligence</title>
+    <meta name="description"
+        content="A data-driven analysis of the top 5 crypto wallets. 60% of wallets sabotage their own first impression.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080808;
+            --surface: #111111;
+            --accent: #C6F135;
+            --accent-dim: rgba(198, 241, 53, 0.1);
+            --text-main: #F0EDE6;
+            --text-dim: #888888;
+            --error: #FF4D4D;
+            --success: #22c55e;
+
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            --section-padding: 120px 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Essential Overlays */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            transition: width 0.2s, height 0.2s, transform 0.1s;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 0 48px;
+            gap: 48px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(80px, 10vw, 140px);
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 80vh;
+            background: url('assets/case-study-hero.png') center/cover no-repeat;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 48px;
+            right: -24px;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 12px 24px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            transform: rotate(90deg);
+            transform-origin: top right;
+        }
+
+        /* Stats Grid */
+        .stats-section {
+            padding: var(--section-padding);
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            transition: border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+        }
+
+        .stat-val {
+            font-family: var(--font-display);
+            font-size: 80px;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 16px;
+        }
+
+        /* Rankings Table */
+        .rankings-section {
+            padding: var(--section-padding);
+        }
+
+        .table-container {
+            margin-top: 80px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-body);
+        }
+
+        th {
+            text-align: left;
+            padding: 24px;
+            color: var(--text-dim);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            padding: 32px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .rank-num {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--text-dim);
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .score-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .score-high {
+            background: var(--success);
+            color: #fff;
+        }
+
+        .score-med {
+            background: #f59e0b;
+            color: #fff;
+        }
+
+        .score-low {
+            background: var(--error);
+            color: #fff;
+        }
+
+        /* Deep Dive Cards */
+        .deep-dive {
+            padding: var(--section-padding);
+            background: #080808;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .failure-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .failure-item {
+            padding: 24px;
+            background: var(--surface);
+            border-left: 4px solid var(--error);
+            margin-bottom: 16px;
+        }
+
+        .failure-item h4 {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .failure-item p {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        /* The solution - Mukamal Way */
+        .mukamal-way {
+            padding: var(--section-padding);
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .mukamal-way h2 {
+            color: var(--bg);
+            font-size: 120px;
+            margin-bottom: 60px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .solution-card {
+            border: 2px solid var(--bg);
+            padding: 32px;
+        }
+
+        .solution-card h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--bg);
+        }
+
+        .solution-card p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Footer / CTA */
+        .final-cta {
+            padding: 160px 48px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 120px;
+            margin-bottom: 40px;
+        }
+
+        .btn-large {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 24px 64px;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 32px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn-large:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            padding: 48px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero,
+            .grid-2,
+            .stats-grid,
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: auto;
+                padding-top: 160px;
+            }
+
+            .hero-image {
+                height: 50vh;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <nav>
+        <a href="index.html" class="logo">MUKAMAL</a>
+        <div class="nav-links">
+            <a href="#summary">Summary</a>
+            <a href="#rankings">Rankings</a>
+            <a href="#failures">Failures</a>
+            <a href="#solution">Solution</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="mono">UX Intelligence Division / Report 2026</p>
+                <h1>THE STATE OF <span style="color: var(--accent);">WEB3 WALLET UX</span></h1>
+                <p>A clinical, data-backed analysis of the 5 most-used crypto wallets. 60% of industry leaders sabotage
+                    their own first impression.</p>
+                <div class="btn-group">
+                    <a href="#rankings" class="btn-large" style="font-size: 20px; padding: 16px 40px;">View Rankings</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-badge">BEST IN CLASS: PHANTOM</div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" id="summary">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-fail">60%</div>
+                    <div class="stat-label">Critical Failure Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-issues">14</div>
+                    <div class="stat-label">Critical Issues Found</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-bounce">+25%</div>
+                    <div class="stat-label">Est. Bounce Rate Impact</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-gap">42pt</div>
+                    <div class="stat-label">Top vs Bottm Score Gap</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rankings Section -->
+        <section class="rankings-section" id="rankings">
+            <p class="mono">Competitive Benchmark</p>
+            <h2 style="font-size: 80px;">THE RANKINGS</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>RANK</th>
+                            <th>BRAND</th>
+                            <th>AVG SCORE</th>
+                            <th>CRITICAL FAILS</th>
+                            <th>VERDICT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rank-num">01</td>
+                            <td class="brand-name">PHANTOM</td>
+                            <td><span class="score-pill score-high">89.5 / 100</span></td>
+                            <td>0</td>
+                            <td>Best-in-class — Zero friction.</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">02</td>
+                            <td class="brand-name">RAINBOW</td>
+                            <td><span class="score-pill score-med">74.0 / 100</span></td>
+                            <td>1</td>
+                            <td>Identity undermined by overlays.</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">03</td>
+                            <td class="brand-name">METAMASK</td>
+                            <td><span class="score-pill score-med">68.5 / 100</span></td>
+                            <td>0</td>
+                            <td>Weak typography hierarchy.</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">04</td>
+                            <td class="brand-name">COINBASE</td>
+                            <td><span class="score-pill score-low">47.5 / 100</span></td>
+                            <td>2</td>
+                            <td>Catastrophic first impression.</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-num">05</td>
+                            <td class="brand-name">TRUST WALLET</td>
+                            <td><span class="score-pill score-low">47.5 / 100</span></td>
+                            <td>1</td>
+                            <td>Blocked by security walls.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Deep Dive Section -->
+        <section class="deep-dive" id="failures">
+            <div class="grid-2">
+                <div>
+                    <p class="mono">Clinical Diagnoses</p>
+                    <h2 style="font-size: 80px;">THE REVENUE <br><span style="color: var(--error);">LEAKS</span></h2>
+                    <p style="margin-top: 32px; color: var(--text-dim);">80% of audited brands suffer from preventable
+                        anti-patterns that directly increase bounce rates and kill conversion.</p>
+                </div>
+                <div class="failure-list">
+                    <div class="failure-item">
+                        <h4>LEAK 01: CONTENT-BLOCKING WALLS</h4>
+                        <p>Cookie banners and CAPTCHA barriers cover 15-20% of the viewport, creating active friction
+                            before the user even sees the product. (Coinbase, Trust Wallet)</p>
+                    </div>
+                    <div class="failure-item">
+                        <h4>LEAK 02: MISSING CONTEXT</h4>
+                        <p>Text-only heroes with zero explanation of the product on mobile. Users don't know what they
+                            are downloading. (MetaMask)</p>
+                    </div>
+                    <div class="failure-item">
+                        <h4>LEAK 03: UNSOLICITED OVERLAYS</h4>
+                        <p>Chat widgets with notification badges and autoplay videos steal attention without consent.
+                            (Rainbow, Coinbase)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The solution - Mukamal Way -->
+        <section class="mukamal-way" id="solution">
+            <p class="mono" style="color: var(--bg);">Design Synthesis</p>
+            <h2>THE MUKAMAL WAY</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>01. ZERO ANTI-PATTERNS</h3>
+                    <p>No cookie banners, no autoplay, no chat badges on first load. The product is the priority.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>02. WCAG AAA CONTRAST</h3>
+                    <p>Ensuring 7:1 contrast ratios. Accessibility isn't an option; it's a conversion driver.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>03. 56PX MINIMUM CTA</h3>
+                    <p>Fitts's Law optimization. Large, pill-shaped targets for faster acquisition.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>04. SINGLE MESSAGE HERO</h3>
+                    <p>Reducing cognitive load to one clear value prop and one primary action.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>05. SUPPORT IN PRIMARY NAV</h3>
+                    <p>3 of 5 brands omit help visibility. We make support a top-level focal point.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>06. 8PX BASE GRID</h3>
+                    <p>Mathematical consistency across every breakpoint for perfect visual hierarchy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <p class="mono">Ready to Lead?</p>
+            <h2>CONVERSION <br>BY DESIGN.</h2>
+            <a href="#" class="btn-large">RECLAIM YOUR REVENUE</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo" style="font-size: 18px;">MUKAMAL / UX INTELLIGENCE</div>
+        <div>TOP 1% STANDARD &middot; CLINICAL DATA &middot; ZERO FILLER</div>
+        <div>&copy; 2026 MUKAMAL OPERATIONS</div>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const dot = document.querySelector('.cursor-dot');
+        const ring = document.querySelector('.cursor-ring');
+
+        window.addEventListener('mousemove', (e) => {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            ring.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // Simple Hover Effect for Links
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width = '60px';
+                ring.style.height = '60px';
+                ring.style.background = 'rgba(198, 241, 53, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width = '40px';
+                ring.style.height = '40px';
+                ring.style.background = 'transparent';
+            });
+        });
+
+        // Scroll reveal logic can be added here if needed
+    </script>
+</body>
+
+</html>

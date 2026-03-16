@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "web3-ux-report-2026",
+    "title": "Web3 UX Report 2026",
+    "subtitle": "A clinical audit of the top 5 crypto wallets",
+    "category": "Web3",
+    "tags": ["UX Audit", "Web3", "Competitive Analysis"],
+    "metric": "89.5 UX Score",
+    "metric_label": "Best-in-class benchmark",
+    "image": "assets/case-study-hero.png",
+    "date": "2026-03",
+    "url": "case-study.html",
+    "summary": "We audited MetaMask, Phantom, Rainbow, Trust Wallet, and Coinbase across 5 heuristic frameworks. 60% had critical failures. We synthesized The Mukamal Way — a gold-standard design system.",
+    "featured": true
+  },
+  {
+    "slug": "checkout-optimization",
+    "title": "Checkout Optimization",
+    "subtitle": "Reducing friction in a 4-step purchase flow",
+    "category": "eCommerce",
+    "tags": ["CRO", "Retail", "Checkout"],
+    "metric": "+34% Conv. Rate",
+    "metric_label": "Conversion rate uplift",
+    "image": "assets/case-checkout.png",
+    "date": "2025-11",
+    "url": "#",
+    "summary": "Redesigned a high-traffic retailer's checkout flow, reducing form fields by 40% and increasing conversion rate by 34%.",
+    "featured": true
+  },
+  {
+    "slug": "saas-demo-funnel",
+    "title": "Demo Funnel Redesign",
+    "subtitle": "B2B SaaS lead capture transformation",
+    "category": "SaaS",
+    "tags": ["B2B", "Funnel", "Lead Gen"],
+    "metric": "+52% Form Completes",
+    "metric_label": "Demo request rate",
+    "image": "assets/case-saas.png",
+    "date": "2025-09",
+    "url": "#",
+    "summary": "Restructured a SaaS demo funnel from 3 pages to 1, with progressive disclosure and social proof. Form completions jumped 52%.",
+    "featured": true
+  }
+]

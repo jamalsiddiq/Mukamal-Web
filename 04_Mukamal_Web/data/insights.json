@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "anatomy-failed-web3-onboarding",
+    "title": "The Anatomy of a Failed Web3 Onboarding Flow",
+    "excerpt": "Everyone assumes a 12-word seed phrase is the only secure way to onboard, but the cognitive load is killing your activation rate.",
+    "category": "Web3 UX",
+    "date": "MAR 10, 2026",
+    "readTime": "4 MIN READ",
+    "image": "/assets/cases/web3-audit/metamask-fail.jpg",
+    "url": "#"
+  },
+  {
+    "slug": "checkout-friction-ecommerce",
+    "title": "Checkout Friction: Why Your '1-Click' Flow Still Drops 40%",
+    "excerpt": "A deep dive into the 3 invisible interaction costs that ruin the eCommerce checkout experience during high-conversion events.",
+    "category": "eCommerce",
+    "date": "MAR 03, 2026",
+    "readTime": "6 MIN READ",
+    "image": "/assets/placeholder-grid.jpg",
+    "url": "#"
+  }
+]

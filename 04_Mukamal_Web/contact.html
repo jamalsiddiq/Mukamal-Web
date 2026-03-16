@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mukamal</title>
+    <meta name="description" content="Get in touch with Mukamal. Free CRO audit, 3-day trial, or start a project. We respond within 24 hours.">
+    <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .contact-hero { padding-top: 180px; padding-bottom: 80px; }
+        .contact-form { display: flex; flex-direction: column; gap: 32px; max-width: 600px; }
+        .form-group label { font-family: var(--font-m); font-size: 12px; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 8px; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; background: var(--glass); border: 1px solid var(--border);
+            border-radius: var(--radius-sm); padding: 16px; font-family: var(--font-b);
+            font-size: 16px; color: var(--text); outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+        .form-group select option { background: var(--bg); }
+        .contact-info { display: flex; flex-direction: column; gap: 32px; }
+        .contact-info-item h4 { font-family: var(--font-d); font-size: 24px; margin-bottom: 8px; }
+        .contact-info-item p { color: var(--dim); }
+        .contact-info-item a { color: var(--accent); transition: opacity 0.3s; }
+        .contact-info-item a:hover { opacity: 0.7; }
+
+        #form-status { font-family: var(--font-m); font-size: 14px; padding: 16px; border-radius: var(--radius-sm); display: none; }
+        #form-status.success { display: block; background: rgba(34, 197, 94, 0.1); color: var(--success); border: 1px solid var(--success); }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <p class="mono-accent reveal">Get In Touch</p>
+                <h1 class="reveal" style="font-size: clamp(64px, 8vw, 120px);">LET'S BUILD<br><span style="color: var(--accent);">SOMETHING.</span></h1>
+                <p class="reveal mt-md text-dim" style="max-width: 560px; font-size: 20px;">Whether it's a free CRO audit, a 3-day trial, or a full engagement — we respond within 24 hours.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid-2" style="gap: 120px;">
+                    <div>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Work Email</label>
+                                <input type="email" id="email" name="email" placeholder="jane@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company / Website URL</label>
+                                <input type="text" id="company" name="company" placeholder="https://yourcompany.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">What do you need?</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="cro-audit">Free CRO Audit</option>
+                                    <option value="3-day-trial">3-Day Trial</option>
+                                    <option value="ux-redesign">UX/UI Redesign</option>
+                                    <option value="design-system">Design System</option>
+                                    <option value="funnel">Funnel Architecture</option>
+                                    <option value="other">Something Else</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Tell us about your project</label>
+                                <textarea id="message" name="message" placeholder="What's the biggest challenge your users face today?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-pill btn-magnetic" style="align-self: flex-start;">Send Message &rarr;</button>
+                            <div id="form-status"></div>
+                        </form>
+                    </div>
+                    <div class="contact-info reveal">
+                        <div class="contact-info-item">
+                            <h4>EMAIL</h4>
+                            <p><a href="mailto:hello@mukamal.co">hello@mukamal.co</a></p>
+                        </div>
+                        <div class="contact-info-item">
+                            <h4>RESPONSE TIME</h4>
+                            <p>Within 24 hours. Usually faster.</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <h4>BASED IN</h4>
+                            <p>Working globally, from everywhere.</p>
+                        </div>
+                        <div class="contact-info-item" style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);">
+                            <h4>SOCIAL</h4>
+                            <p style="display: flex; gap: 16px;">
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Twitter/X</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{
+  "engine": "Mukamal Visual Capture Engine v2.0",
+  "timestamp": "2026-03-04T22:31:36.610Z",
+  "strategy": "native",
+  "browsers": [
+    "safari"
+  ],
+  "viewportSettings": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "label": "desktop-1440x900"
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812,
+      "dpr": 3,
+      "label": "mobile-375x812"
+    }
+  },
+  "targets": 5,
+  "viewports": [
+    "desktop",
+    "mobile"
+  ],
+  "captures": [
+    {
+      "url": "https://metamask.io",
+      "brand": "web3-wallets",
+      "viewport": "desktop-1440x900",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/metamask-io_desktop-1440x900_safari_2026-03-04T22-29-47.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://metamask.io",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": null,
+      "status": "FAILED",
+      "error": "Command failed: osascript -e 'tell application \"Safari\" to activate' -e 'delay 0.5' -e 'tell application \"System Events\"' -e '  tell process \"Safari\"' -e '    click menu item \"Enter Responsive Design Mode\" of menu \"Develop\" of menu bar 1' -e '  end tell' -e 'end tell' -e 'delay 1' \n103:188: execution error: System Events got an error: osascript is not allowed assistive access. (-1719)\n",
+      "botDetection": "none"
+    },
+    {
+      "url": "https://phantom.app",
+      "brand": "web3-wallets",
+      "viewport": "desktop-1440x900",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/phantom-app_desktop-1440x900_safari_2026-03-04T22-30-06.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://phantom.app",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": null,
+      "status": "FAILED",
+      "error": "Command failed: osascript -e 'tell application \"Safari\" to activate' -e 'delay 0.5' -e 'tell application \"System Events\"' -e '  tell process \"Safari\"' -e '    click menu item \"Enter Responsive Design Mode\" of menu \"Develop\" of menu bar 1' -e '  end tell' -e 'end tell' -e 'delay 1' \n103:188: execution error: System Events got an error: osascript is not allowed assistive access. (-1719)\n",
+      "botDetection": "none"
+    },
+    {
+      "url": "https://www.coinbase.com/wallet",
+      "brand": "web3-wallets",
+      "viewport": "desktop-1440x900",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/www-coinbase-com_desktop-1440x900_safari_2026-03-04T22-30-21.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://www.coinbase.com/wallet",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/www-coinbase-com_mobile-375x812_safari_2026-03-04T22-30-33.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://trustwallet.com",
+      "brand": "web3-wallets",
+      "viewport": "desktop-1440x900",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/trustwallet-com_desktop-1440x900_safari_2026-03-04T22-30-47.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://trustwallet.com",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/trustwallet-com_mobile-375x812_safari_2026-03-04T22-30-58.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://rainbow.me",
+      "brand": "web3-wallets",
+      "viewport": "desktop-1440x900",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/rainbow-me_desktop-1440x900_safari_2026-03-04T22-31-11.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    },
+    {
+      "url": "https://rainbow.me",
+      "brand": "web3-wallets",
+      "viewport": "mobile-375x812",
+      "browser": "safari",
+      "strategy": "native",
+      "file": "/Users/jamal/Documents/Mukamal/01_Audit_Engine/web3-wallets/media/rainbow-me_mobile-375x812_safari_2026-03-04T22-31-22.png",
+      "status": "SUCCESS",
+      "error": null,
+      "botDetection": "none"
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "success": 8,
+    "blocked": 0,
+    "failed": 2,
+    "cancelled": 0
+  }
+}

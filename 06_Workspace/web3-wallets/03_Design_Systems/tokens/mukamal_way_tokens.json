@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "name": "The Mukamal Way — Web3 Wallet Design System",
+    "version": "1.0.0",
+    "project": "M-001 Web3 Wallets",
+    "date": "2026-03-05",
+    "standard": "WCAG AAA + Fitts's Law + Miller's Law"
+  },
+  "grid": {
+    "base_unit": 8,
+    "columns": {
+      "desktop": 12,
+      "tablet": 8,
+      "mobile": 4
+    },
+    "gutter": {
+      "desktop": 24,
+      "tablet": 20,
+      "mobile": 16
+    },
+    "margin": {
+      "desktop": 80,
+      "tablet": 40,
+      "mobile": 16
+    },
+    "max_content_width": 1280
+  },
+  "typography": {
+    "scale_ratio": 1.25,
+    "base_size": 16,
+    "steps": {
+      "xs": 12,
+      "sm": 14,
+      "base": 16,
+      "md": 20,
+      "lg": 24,
+      "xl": 32,
+      "2xl": 40,
+      "3xl": 48,
+      "4xl": 64,
+      "display": 80
+    },
+    "line_height": {
+      "tight": 1.1,
+      "normal": 1.5,
+      "relaxed": 1.75
+    },
+    "letter_spacing": {
+      "tight": "-0.02em",
+      "normal": "0",
+      "wide": "0.05em"
+    },
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    },
+    "recommended_stacks": {
+      "system": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "premium": "'Inter', 'SF Pro Display', -apple-system, sans-serif",
+      "monospace": "'JetBrains Mono', 'SF Mono', 'Fira Code', monospace"
+    }
+  },
+  "spacing": {
+    "unit": "px",
+    "scale": {
+      "0": 0,
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "8": 32,
+      "10": 40,
+      "12": 48,
+      "16": 64,
+      "20": 80,
+      "24": 96
+    }
+  },
+  "color": {
+    "semantic": {
+      "surface_dark": "#1C1C1E",
+      "surface_light": "#FFFFFF",
+      "surface_muted": "#F5F5F5",
+      "text_primary_on_dark": "#FFFFFF",
+      "text_primary_on_light": "#1A1A1A",
+      "text_secondary": "rgba(255,255,255,0.7)",
+      "text_muted": "rgba(0,0,0,0.5)",
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    },
+    "brand_corrections": {
+      "metamask": {
+        "text_corrected": "#1A0D40",
+        "surface": "#FCE4D6",
+        "accent": "#F5841F",
+        "contrast_ratio": 8.2,
+        "note": "Original #24115F was 4.7:1 — corrected to 8.2:1 for AAA"
+      },
+      "phantom": {
+        "surface": "#1C1C1E",
+        "text": "#FFFFFF",
+        "accent": "#AB9FF2",
+        "contrast_ratio": 15.4,
+        "note": "Already AAA compliant — reference model"
+      },
+      "rainbow": {
+        "surface": "#E8F4FD",
+        "text": "#1A1A1A",
+        "accent_primary": "#FF6B35",
+        "accent_secondary": "#FF69B4",
+        "contrast_ratio": 14.8,
+        "note": "AAA compliant, maintain brand vibrancy"
+      },
+      "trustwallet": {
+        "surface": "#FFFFFF",
+        "text": "#1A1A1A",
+        "accent": "#0500FF",
+        "interstitial_bg": "#0500FF",
+        "contrast_ratio": 17.4,
+        "note": "Blue accent for branded Cloudflare interstitial"
+      },
+      "coinbase_base": {
+        "surface": "#FFFFFF",
+        "text": "#1A1A1A",
+        "accent": "#0052FF",
+        "contrast_ratio": 17.4,
+        "note": "Standard Coinbase blue, replaces cryptic hero"
+      }
+    }
+  },
+  "cta": {
+    "primary": {
+      "height_min": 56,
+      "padding_horizontal": 48,
+      "border_radius": 28,
+      "font_size": 18,
+      "font_weight": 600,
+      "mobile_width": "100%",
+      "mobile_max_width": 327,
+      "touch_target_min": 48,
+      "hover": {
+        "transform": "scale(1.02)",
+        "box_shadow": "0 8px 24px rgba(0,0,0,0.15)",
+        "transition": "all 200ms ease"
+      },
+      "active": {
+        "transform": "scale(0.98)",
+        "transition": "all 100ms ease"
+      }
+    },
+    "secondary": {
+      "height_min": 48,
+      "padding_horizontal": 32,
+      "border_radius": 24,
+      "font_size": 16,
+      "font_weight": 500,
+      "border_width": 2,
+      "border_style": "solid"
+    }
+  },
+  "navigation": {
+    "desktop": {
+      "height": 72,
+      "padding_horizontal": 80,
+      "logo_max_height": 40,
+      "link_font_size": 16,
+      "link_font_weight": 500,
+      "link_gap": 32,
+      "cta_position": "right",
+      "required_links": ["features", "learn", "support", "download"]
+    },
+    "mobile": {
+      "height": 64,
+      "padding_horizontal": 16,
+      "hamburger_size": 48,
+      "hamburger_icon_size": 24
+    }
+  },
+  "hero": {
+    "desktop": {
+      "layout": "grid",
+      "columns": "1fr 1fr",
+      "gap": 48,
+      "padding_top": 64,
+      "padding_bottom": 64,
+      "min_height": "calc(100vh - 72px)",
+      "max_headline_size": 64,
+      "max_visual_focal_points": 2,
+      "required_elements": ["headline", "subtitle", "primary_cta", "product_visual"]
+    },
+    "mobile": {
+      "layout": "flex",
+      "direction": "column",
+      "padding_top": 24,
+      "padding_horizontal": 16,
+      "max_headline_size": 40,
+      "cta_width": "100%",
+      "subtitle_required": true,
+      "content_density_target": 0.75,
+      "required_elements": ["headline", "subtitle", "primary_cta"]
+    }
+  },
+  "elevation": {
+    "0": "none",
+    "1": "0 1px 2px rgba(0,0,0,0.05)",
+    "2": "0 4px 8px rgba(0,0,0,0.08)",
+    "3": "0 8px 24px rgba(0,0,0,0.12)",
+    "4": "0 16px 48px rgba(0,0,0,0.16)"
+  },
+  "border_radius": {
+    "none": 0,
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "2xl": 24,
+    "pill": 9999
+  },
+  "transition": {
+    "fast": "150ms ease",
+    "normal": "200ms ease",
+    "slow": "300ms ease",
+    "entrance": "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+    "exit": "200ms cubic-bezier(0.4, 0, 1, 1)"
+  },
+  "anti_patterns": {
+    "banned": [
+      "cookie_banner_bottom_fixed",
+      "autoplay_video_with_sound",
+      "chat_widget_auto_show_with_badge",
+      "captcha_before_content",
+      "text_only_hero_no_product_context",
+      "headline_over_80px",
+      "nav_without_support_link"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights — Mukamal OS</title>
+    <meta name="description" content="Data-backed UX teardowns, CRO heuristics, and clinical design strategies from the Top 1%.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <main class="page-container" style="padding-top: 150px; min-height: 80vh;">
+                <!-- Hero Section -->
+                <section class="section" style="padding-bottom: 2rem;">
+                    <h1 class="h1"><span class="hero-word">CLINICAL</span> <span class="hero-word">INSIGHTS</span></h1>
+                    <p class="body-lg" style="max-width: 600px; color: var(--dim);">
+                        Data-backed UX teardowns, CRO heuristics, and surgical design strategies. Stop guessing. Start auditing.
+                    </p>
+                </section>
+
+                <!-- Insights Feed -->
+                <section class="section">
+                    <div id="insights-grid" class="work-grid stagger-grid">
+                        <!-- Instantiated via insights.js -->
+                    </div>
+                </section>
+
+                <!-- CTA -->
+                <section class="section">
+                    <div class="card bg-accent" style="text-align: center; padding: 100px 48px; border-radius: 20px;">
+                        <h2 class="h2 reveal" style="color: var(--bg);">STOP LEAKING CONVERSIONS</h2>
+                        <p class="body-lg reveal" style="color: rgba(8, 8, 8, 0.8); margin-bottom: 40px; max-width: 600px; margin-inline: auto;">
+                            Get a surgical UX audit of your core flows based on the 10 heuristics of the Mukamal Pipeline.
+                        </p>
+                        <a href="/contact.html" class="btn btn-primary btn-magnetic reveal" style="background: var(--bg); color: var(--text);">Book Audit &rarr;</a>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-placeholder"></div>
+        </div>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+    <!-- Insights Loader -->
+    <script src="/js/insights.js"></script>
+</body>
+</html>

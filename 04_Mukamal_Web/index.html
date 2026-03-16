@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukamal | We Design Conversion</title>
+    <meta name="description" content="Specialist UX & CRO design agency. We audit, diagnose, and fix the experiences that bleed revenue. Data-backed. Zero filler.">
+    <meta property="og:title" content="Mukamal — We Design Conversion">
+    <meta property="og:description" content="Specialist UX & CRO design agency for eCommerce, Web3, and SaaS.">
+    <meta property="og:image" content="assets/brand/og-default.png">
+    <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Homepage-specific styles */
+        .hero-bottom { position: absolute; bottom: 48px; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-end; }
+        .scroll-indicator { font-family: var(--font-m); font-size: 12px; writing-mode: vertical-rl; transform: rotate(180deg); color: var(--accent); }
+        .live-stat { text-align: right; }
+        .live-stat .num { font-family: var(--font-d); font-size: 64px; color: var(--accent); line-height: 1; }
+        .live-stat .label { font-family: var(--font-m); font-size: 12px; color: var(--dim); }
+
+        .stats-bg { background: #050505; border-top: 1px solid var(--border); }
+
+        .services-card:hover { border-color: var(--accent); }
+        .services-card .card-sub { font-family: var(--font-m); font-size: 12px; font-weight: bold; margin-bottom: 12px; color: var(--accent); text-transform: uppercase; }
+
+        /* Work horizontal scroll */
+        .work-scroll-section { height: 100vh; display: flex; align-items: center; overflow: hidden; }
+        .work-scroll-container { display: flex; gap: 40px; padding-right: 48px; }
+        .work-scroll-card { width: 50vw; max-width: 700px; flex-shrink: 0; }
+        .work-scroll-img { width: 100%; height: 45vh; background-size: cover; background-position: center; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 24px; }
+        .work-scroll-meta { display: flex; justify-content: space-between; align-items: flex-end; }
+        .work-scroll-meta h3 { font-size: 36px; }
+        .work-scroll-meta p { font-family: var(--font-m); color: var(--dim); font-size: 14px; }
+        .work-scroll-meta .metric { color: var(--accent); }
+
+        /* Testimonials */
+        .quote-mark { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-family: var(--font-d); font-size: 300px; color: rgba(198, 241, 53, 0.04); line-height: 1; z-index: 0; pointer-events: none; }
+        .testimonial-wrapper { position: relative; height: 200px; display: flex; justify-content: center; align-items: center; }
+        .testi-slide { position: absolute; opacity: 0; text-align: center; transition: opacity 0.5s; }
+        .testi-slide.active { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .work-scroll-section { height: auto; padding: 80px 0; }
+            .work-scroll-container { flex-direction: column; padding: 0; }
+            .work-scroll-card { width: 100%; max-width: none; }
+            .work-scroll-img { height: 240px; }
+            .hero-bottom { position: static; margin-top: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- HERO -->
+            <section class="hero">
+                <div class="container relative">
+                    <div class="glow-orb glow-1"></div>
+                    <div class="glow-orb glow-2"></div>
+                    <p class="mono-accent hero-sub" style="margin-bottom: 24px;">UX & CRO Design Agency</p>
+                    <h1>
+                        <div class="split-line"><span class="hero-word">WE DESIGN</span></div>
+                        <div class="split-line"><span class="hero-word" style="color: var(--accent);">CONVERSION.</span></div>
+                    </h1>
+                    <p class="hero-sub" style="font-size: 24px; font-weight: 600; color: var(--text); margin-top: 32px;">Stop Losing Revenue to Bad UX.</p>
+                    <p class="hero-sub" style="margin-top: 16px; max-width: 560px;">Most brands bleed revenue daily — not from lack of traffic, but from experiences that confuse, frustrate, and lose customers. We fix exactly that.</p>
+                    <div class="hero-sub" style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="/contact.html" class="btn btn-pill">Get Your Free CRO Audit &rarr;</a>
+                        <a href="/work.html" class="btn btn-outline">See Our Work &rarr;</a>
+                    </div>
+                    <div class="hero-bottom container">
+                        <div class="scroll-indicator">SCROLL TO EXPLORE &darr;</div>
+                        <div class="live-stat">
+                            <div class="num" id="hero-counter">0</div>
+                            <div class="label">CRO Projects Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRUST BAR -->
+            <section class="marquee-container">
+                <div class="marquee-content">
+                    TRUSTED BY TEAMS AT: GOOGLE &middot; SHOPIFY &middot; FIGMA &middot; REVOLUT &middot; TRUST WALLET &middot; METAMASK &middot;
+                    TRUSTED BY TEAMS AT: GOOGLE &middot; SHOPIFY &middot; FIGMA &middot; REVOLUT &middot; TRUST WALLET &middot; METAMASK &middot;
+                    TRUSTED BY TEAMS AT: GOOGLE &middot; SHOPIFY &middot; FIGMA &middot; REVOLUT &middot; TRUST WALLET &middot; METAMASK &middot;
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section class="section" id="services">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <p class="mono-accent">What We Do</p>
+                        <h2>EVERYTHING YOUR BRAND NEEDS TO CONVERT</h2>
+                        <p class="mt-md">We're not a generalist agency. We're specialists in the two things that directly grow your revenue: experience design and conversion optimization.</p>
+                    </div>
+                    <div class="grid-3 stagger-grid">
+                        <div class="card services-card">
+                            <div class="card-num">01</div>
+                            <h3>UX/UI DESIGN</h3>
+                            <div class="card-sub">Beautiful Interfaces That Sell</div>
+                            <p>We design experiences users love — and that your metrics will love even more. Every interaction is crafted with intent.</p>
+                        </div>
+                        <div class="card services-card">
+                            <div class="card-num">02</div>
+                            <h3>CRO STRATEGY</h3>
+                            <div class="card-sub">More Revenue From Existing Traffic</div>
+                            <p>Don't just drive traffic — convert it. We find where you lose customers and fix it with data-backed design decisions.</p>
+                        </div>
+                        <div class="card services-card">
+                            <div class="card-num">03</div>
+                            <h3>DESIGN SYSTEMS</h3>
+                            <div class="card-sub">Build Once. Scale Forever.</div>
+                            <p>Robust design systems and component libraries so your product team can move fast without breaking consistency.</p>
+                        </div>
+                        <div class="card services-card">
+                            <div class="card-num">04</div>
+                            <h3>FUNNEL ARCHITECTURE</h3>
+                            <div class="card-sub">End-to-End Journey Mapping</div>
+                            <p>We transform casual browsers into lifelong buyers by engineering logical, persuasive paths to purchase.</p>
+                        </div>
+                        <div class="card services-card">
+                            <div class="card-num">05</div>
+                            <h3>RESEARCH & INSIGHTS</h3>
+                            <div class="card-sub">No Guesswork.</div>
+                            <p>Qualitative and quantitative analysis to understand exactly why users drop off and how to fix it.</p>
+                        </div>
+                        <div class="card services-card">
+                            <div class="card-num">06</div>
+                            <h3>GROWTH EXPERIMENTATION</h3>
+                            <div class="card-sub">A/B Validation</div>
+                            <p>Rapid testing cycles to mathematically validate design decisions and ensure revenue growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STATS -->
+            <section class="section stats-bg">
+                <div class="container">
+                    <div class="grid-4 stagger-grid" style="text-align: center;">
+                        <div>
+                            <div class="stat-num">+<span class="counter" data-target="30">0</span>%</div>
+                            <div class="stat-label">Avg. Conversion Uplift</div>
+                        </div>
+                        <div>
+                            <div class="stat-num"><span class="counter" data-target="100">0</span>+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div>
+                            <div class="stat-num"><span class="counter" data-target="24">0</span><span style="font-size: 60px;">hrs</span></div>
+                            <div class="stat-label">Kickoff Time</div>
+                        </div>
+                        <div>
+                            <div class="stat-num"><span class="counter" data-target="9">0</span>+</div>
+                            <div class="stat-label">Years of CRO Design</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORK (horizontal scroll) -->
+            <section class="work-scroll-section" id="work">
+                <div class="container" style="padding-left: var(--pad);">
+                    <div class="work-scroll-container" id="work-container">
+                        <!-- Populated by JS from case-studies.json -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROCESS -->
+            <section class="section" id="process">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <p class="mono-accent">How We Work</p>
+                        <h2>A PROVEN PROCESS</h2>
+                        <p class="mt-md">Every step refined for lean, high-quality delivery. No waterfall bottlenecks. Just a clear path from brief to breakthrough.</p>
+                    </div>
+                    <div class="process-track">
+                        <div class="process-line"></div>
+                        <div class="process-line-fill"></div>
+                        <div class="grid-4 stagger-grid" style="position: relative; z-index: 2;">
+                            <div class="process-step">
+                                <div class="step-dot"></div>
+                                <h3>01 DISCOVERY</h3>
+                                <p>We understand your business, your customers, and where your biggest conversion opportunities lie.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-dot"></div>
+                                <h3>02 DIAGNOSIS</h3>
+                                <p>Deep analysis: user behaviour, competitor benchmarking, heatmaps, and session recordings.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-dot"></div>
+                                <h3>03 DESIGN</h3>
+                                <p>We design with intent. Every element considered for usability and conversion before a single line of code.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-dot"></div>
+                                <h3>04 TEST & SCALE</h3>
+                                <p>We don't guess. A/B tests and iterative refinement ensure the design performs — not just looks good.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section class="section" style="text-align: center; position: relative;">
+                <div class="container">
+                    <div class="quote-mark">"</div>
+                    <div class="testimonial-wrapper">
+                        <div class="testi-slide active">
+                            "Mukamal didn't just redesign our site. They mathematically re-engineered our revenue funnel. Staggering results."
+                            <div class="testi-meta"><span>&mdash; VP Product</span>, Fintech Unicorn</div>
+                        </div>
+                        <div class="testi-slide">
+                            "The fastest ROI we've ever seen from a design agency. They operate like absolute surgeons."
+                            <div class="testi-meta"><span>&mdash; Founder</span>, B2B SaaS</div>
+                        </div>
+                        <div class="testi-slide">
+                            "Their approach to Fitts's Law and Cognitive Load changed how our entire company thinks about product."
+                            <div class="testi-meta"><span>&mdash; Head of Digital</span>, Global Retailer</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section" id="contact">
+                <div class="container">
+                    <div class="grid-2">
+                        <div>
+                            <h2 style="font-size: 96px;">READY TO<br>CONVERT?</h2>
+                            <p style="font-family: var(--font-m); text-transform: uppercase; margin-top: 32px;">Not Sure Yet? Let Us Prove It.</p>
+                            <p style="margin-top: 24px; max-width: 400px;">Give us one focused design task — a product page, a checkout flow, a landing page — and see exactly how we work. No pitches. Just results, in 3 days.</p>
+                        </div>
+                        <div class="cta-form">
+                            <input type="text" placeholder="Your Name">
+                            <input type="email" placeholder="Work Email">
+                            <input type="text" placeholder="Company URL">
+                            <button class="btn btn-large btn-magnetic" style="align-self: flex-start; background: var(--bg); color: var(--text); font-size: 18px; padding: 20px 48px; margin-top: 16px;">Claim 3-Day Trial &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Homepage-specific: Hero counter
+        if (typeof gsap !== 'undefined') {
+            gsap.to({ val: 0 }, {
+                val: 143, duration: 2, ease: "power2.out", delay: 1,
+                onUpdate: function () { document.getElementById("hero-counter").innerText = Math.floor(this.targets()[0].val); }
+            });
+        }
+
+        // Load work cards from JSON 
+        fetch('data/case-studies.json')
+            .then(r => r.json())
+            .then(studies => {
+                const container = document.getElementById('work-container');
+                studies.filter(s => s.featured).forEach(study => {
+                    const card = document.createElement('a');
+                    card.href = study.url;
+                    card.className = 'work-scroll-card';
+                    card.style.textDecoration = 'none';
+                    card.style.color = 'inherit';
+                    card.innerHTML = `
+                        <div class="work-scroll-img" style="background-image: url('${study.image}')"></div>
+                        <div class="work-scroll-meta">
+                            <div>
+                                <p style="color: var(--dim); font-family: var(--font-m); font-size: 12px;">${study.category}</p>
+                                <h3>${study.title.toUpperCase()}</h3>
+                            </div>
+                            <p class="metric">${study.metric} &rarr;</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+                // Horizontal scroll (desktop)
+                if (typeof gsap !== 'undefined' && window.matchMedia("(min-width: 768px)").matches) {
+                    gsap.to(container, {
+                        x: () => -(container.scrollWidth - window.innerWidth + 96),
+                        ease: "none",
+                        scrollTrigger: { trigger: ".work-scroll-section", pin: true, scrub: 1, end: () => "+=" + container.scrollWidth }
+                    });
+                }
+            });
+
+        // Testimonial rotation
+        const slides = document.querySelectorAll('.testi-slide');
+        let current = 0;
+        if (slides.length > 1) {
+            setInterval(() => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 5000);
+        }
+
+        // Process line (desktop)
+        if (typeof gsap !== 'undefined' && window.matchMedia("(min-width: 768px)").matches) {
+            gsap.to(".process-line-fill", {
+                width: "100%", ease: "none",
+                scrollTrigger: { trigger: ".process-track", start: "top 70%", end: "bottom 30%", scrub: true }
+            });
+        }
+    </script>
+</body>
+</html>
