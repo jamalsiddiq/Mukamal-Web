@@ -33,6 +33,18 @@ Mukamal/
 └── .agents/workflows/    # Slash command workflows
 ```
 
+## Cross-Agent Sync (Gemini ↔ Claude)
+
+This project is worked on by **both Gemini (Antigravity) and Claude (Claude Code)**. To stay in sync:
+
+1. **On session start:** Read `00_The_Hub_CEO/handoff.md` before doing anything else.
+2. **On session end (or after significant work):** Update `handoff.md` with what you did, current state, and what's next.
+3. **Shared state files** (always read before acting, always update after acting):
+   - `00_The_Hub_CEO/pipeline_state.md` — current pipeline phase
+   - `00_The_Hub_CEO/backlog.md` — all improvements and features
+   - `00_The_Hub_CEO/mandate_board.md` — active mandates
+4. **Never assume context from a prior session.** Always read the handoff log.
+
 ## Operating Rules
 
 1. **Always read the SKILL.md** before executing any skill. Skills contain structured `<instructions>`, `<inputs>`, and `<output_format>` tags.
