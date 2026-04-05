@@ -98,6 +98,26 @@ When starting any audit or capture, confirm:
 - **Browser:** chrome | safari | both
 - **Strategy:** native | interactive | headless
 
+## Cross-Pillar Skill Mapping
+
+Some skills serve multiple pillars. Always check this mapping before assigning work:
+
+| Skill | Primary Pillar | Also Serves |
+|-------|---------------|-------------|
+| `harvesting-tokens` | 01_Audit_Engine | 03_System_Designer |
+| `critic-agent` | Cross-cutting | 04_Mukamal_Web, 09_Website_Builder |
+| `visual-capture` | 01_Audit_Engine | 09_Website_Builder |
+| `brand-architect` | 04_Mukamal_Web | All pillars (governance) |
+
+## Design System
+
+**`04_Mukamal_Web/DESIGN.md`** is the single source of truth for all brand tokens. Skills must reference it — never hardcode colors, fonts, or spacing.
+
+- **Theme:** Dark Luxury (#080808 bg, #C6F135 lime accent)
+- **Fonts:** Bebas Neue (display), DM Sans (body), Space Mono (mono)
+- **Framework:** Next.js 15 + TypeScript + Tailwind CSS v4
+- **Motion:** GSAP 3.12.5 + ScrollTrigger
+
 ## Quality Standard
 
 All outputs must meet the **Top 1% Mandate** — clinical, data-backed, zero filler. If an output is vague or subjective, it fails.

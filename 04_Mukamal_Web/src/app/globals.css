@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* =============================================
+     TYPOGRAPHY — Mukamal Brand DNA
+     Display: Bebas Neue (bold uppercase, tight leading)
+     Body: DM Sans (clean geometric sans)
+     Mono: Space Mono (labels, code, captions)
+     ============================================= */
+  --font-display:  'Bebas Neue', sans-serif;
+  --font-sans:     'DM Sans', sans-serif;
+  --font-mono:     'Space Mono', monospace;
+
+  /* =============================================
+     COLOR TOKENS — Mukamal Dark Luxury
+     ============================================= */
+  --color-background:      #080808;
+  --color-bg:              #080808;
+  --color-bg-elevated:     #0f0f0f;
+  --color-surface:         rgba(255, 255, 255, 0.03);
+  --color-card:            rgba(255, 255, 255, 0.03);
+  --color-card-highest:    rgba(255, 255, 255, 0.06);
+
+  --color-border:          rgba(255, 255, 255, 0.08);
+  --color-border-hover:    rgba(255, 255, 255, 0.15);
+
+  --color-accent:          #C6F135;
+  --color-accent-alt:      #aad306;
+  --color-accent-dim:      rgba(198, 241, 53, 0.6);
+  --color-accent-subtle:   rgba(198, 241, 53, 0.08);
+  --color-accent-glow:     rgba(198, 241, 53, 0.15);
+  --color-accent-contrast: #0e1a00;
+
+  --color-text:            #F0EDE6;
+  --color-text-dim:        rgba(240, 237, 230, 0.7);
+  --color-text-muted:      rgba(240, 237, 230, 0.5);
+
+  --color-error:           #ff4d4d;
+  --color-success:         #C6F135;
+
+  --color-accent-03:  rgba(198, 241, 53, 0.03);
+  --color-accent-05:  rgba(198, 241, 53, 0.05);
+  --color-accent-08:  rgba(198, 241, 53, 0.08);
+  --color-accent-12:  rgba(198, 241, 53, 0.12);
+  --color-accent-25:  rgba(198, 241, 53, 0.25);
+
+  --shadow-card:     0 1px 2px rgba(0,0,0,0.6), 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-glow:     0 0 40px rgba(198, 241, 53, 0.05), 0 0 80px rgba(198, 241, 53, 0.03);
+  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-neon:     0 0 24px rgba(198, 241, 53, 0.12);
+
+  --glass-bg:     rgba(255, 255, 255, 0.03);
+  --glass-blur:   blur(10px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+
+  --spacing-1:  0.5rem;
+  --spacing-2:  1rem;
+  --spacing-3:  1.5rem;
+  --spacing-4:  2rem;
+  --spacing-6:  3rem;
+  --spacing-8:  4rem;
+  --spacing-12: 6rem;
+  --spacing-16: 8rem;
+  --spacing-24: 12rem;
+
+  --container-max:  1280px;
+  --container-wide: 1440px;
+  --gutter:         clamp(1.5rem, 4vw, 3rem);
+
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  --ease-out:    cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast:   0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow:   0.8s;
+
+  --fs-hero:  clamp(4rem, 12vw, 10rem);
+  --fs-h1:    clamp(3rem, 7vw, 7rem);
+  --fs-h2:    clamp(2.25rem, 5vw, 4.5rem);
+  --fs-h3:    clamp(1.5rem, 2.5vw, 2.25rem);
+  --fs-h4:    clamp(1.125rem, 2vw, 1.5rem);
+  --fs-body:  1rem;
+  --fs-label: 0.75rem;
+  --fs-mono:  0.8125rem;
+}
+
+/* =============================================
+   BASE
+   ============================================= */
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-background); }
+  ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+}
+
+/* =============================================
+   NOISE OVERLAY
+   ============================================= */
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* =============================================
+   GLASS CARD
+   ============================================= */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  transition: border-color 0.2s;
+}
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* =============================================
+   NAV & FOOTER
+   ============================================= */
+.nav-link { color: var(--color-text-muted); transition: color 0.2s; }
+.nav-link:hover { color: var(--color-text); }
+.footer-link { color: var(--color-text-muted); transition: color 0.15s; }
+.footer-link:hover { color: var(--color-text); }
+
+/* =============================================
+   SPOTLIGHT CARD
+   ============================================= */
+.spotlight-card { position: relative; transition: border-color 0.3s; }
+.spotlight-card:hover { border-color: rgba(198, 241, 53, 0.2) !important; }
+
+/* =============================================
+   MARQUEE
+   ============================================= */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* =============================================
+   GSAP INITIAL STATES
+   ============================================= */
+.gsap-reveal { opacity: 0; }
+
+/* =============================================
+   FORM FIELDS
+   ============================================= */
+.form-field:focus-within label { color: var(--color-accent); }
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus { outline: none; border-color: var(--color-accent); }

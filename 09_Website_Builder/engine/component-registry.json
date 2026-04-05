@@ -1,0 +1,80 @@
+{
+  "$schema": "component-registry-v1",
+  "version": "1.0.0",
+  "updated": "2026-04-05",
+  "totalComponents": 20,
+  "categories": [
+    {
+      "name": "Backgrounds",
+      "components": [
+        { "slug": "mesh-gradient", "label": "Mesh Gradient", "description": "Full-bleed animated blob mesh with additive blending", "jsx_path": "src/components/ui/mesh-gradient.tsx", "tone_affinity": ["dark-luxury"] },
+        { "slug": "background-paths", "label": "Background Paths", "description": "Framer Motion SVG path mesh, editorial feel", "jsx_path": "src/components/ui/background-paths.tsx", "tone_affinity": ["editorial"] },
+        { "slug": "background-elements", "label": "Background Elements", "description": "GridBackground (dot grid) + FloatingShapes (animated blobs)", "jsx_path": "src/components/ui/background-elements.tsx", "tone_affinity": ["clinical", "tech"] }
+      ]
+    },
+    {
+      "name": "Data Visualization",
+      "components": [
+        { "slug": "globe", "label": "Globe", "description": "WebGL interactive globe (cobe), drag + inertia", "jsx_path": "src/components/ui/globe.tsx", "tone_affinity": ["tech"], "performance_note": "Max 1 WebGL per page" },
+        { "slug": "data-viz-burst", "label": "Data Viz Burst", "description": "Three.js fiber-optic burst (350 rays, additive blending)", "jsx_path": "src/components/ui/data-viz-burst.tsx", "tone_affinity": ["tech", "clinical"], "performance_note": "Max 1 WebGL per page" }
+      ]
+    },
+    {
+      "name": "Interactive",
+      "components": [
+        { "slug": "button", "label": "Button", "description": "8 motion variants (default, shimmer, glow, ghost, outline, etc.)", "jsx_path": "src/components/ui/button.tsx", "tone_affinity": ["*"] },
+        { "slug": "magnetic-button", "label": "Magnetic Button", "description": "Cursor magnet effect (GSAP elastic snap, 30% proximity)", "jsx_path": "src/components/ui/magnetic-button.tsx", "tone_affinity": ["dark-luxury"] },
+        { "slug": "bento-grid", "label": "Bento Grid", "description": "Responsive grid with radial spotlight hover per card", "jsx_path": "src/components/ui/bento-grid.tsx", "tone_affinity": ["*"] }
+      ]
+    },
+    {
+      "name": "Motion",
+      "components": [
+        { "slug": "char-stagger", "label": "Character Stagger", "description": "GSAP text character stagger entrance", "jsx_path": "src/components/motion/char-stagger.tsx", "tone_affinity": ["*"] },
+        { "slug": "section-reveal", "label": "Section Reveal", "description": "GSAP + ScrollTrigger viewport reveal wrapper", "jsx_path": "src/components/motion/section-reveal.tsx", "tone_affinity": ["*"] },
+        { "slug": "logo-ticker", "label": "Logo Ticker", "description": "GSAP infinite horizontal scroll, grayscale → color hover", "jsx_path": "src/components/motion/logo-ticker.tsx", "tone_affinity": ["*"] }
+      ]
+    },
+    {
+      "name": "Advanced Motion",
+      "source": "reference-patterns.md analysis (30 prompts)",
+      "components": [
+        { "slug": "preloader", "label": "Preloader", "description": "Branded loading sequence: counter 000→100, rotating words, progress bar", "jsx_path": "src/components/motion/preloader.tsx", "tone_affinity": ["dark-luxury"], "reference_prompts": ["Portfolio Cosmic", "Loader Animation"] },
+        { "slug": "blur-text", "label": "Blur Text", "description": "Word-by-word blur-to-clear entrance (GSAP filter: blur 10px→0, stagger 0.03)", "jsx_path": "src/components/motion/blur-text.tsx", "tone_affinity": ["dark-luxury", "editorial"], "reference_prompts": ["AI Automation", "Liquid Glass Agency"] },
+        { "slug": "parallax-gallery", "label": "Parallax Gallery", "description": "Pinned scroll gallery (ScrollTrigger pin, 2-col, scrub-linked)", "jsx_path": "src/components/motion/parallax-gallery.tsx", "tone_affinity": ["dark-luxury", "editorial"], "reference_prompts": ["Portfolio Cosmic", "Yacht Club"] },
+        { "slug": "video-hero", "label": "Video Hero", "description": "Full-bleed video bg + gradient overlay (HLS/MP4, autoplay, muted)", "jsx_path": "src/components/brand/video-hero.tsx", "tone_affinity": ["dark-luxury"], "reference_prompts": ["25/30 prompts use this pattern"] }
+      ]
+    },
+    {
+      "name": "Utilities",
+      "components": [
+        { "slug": "visual-placeholder", "label": "Visual Placeholder", "description": "Wireframe slots (desktop chrome, mobile notch, graph, process)", "jsx_path": "src/components/ui/visual-placeholder.tsx", "tone_affinity": ["*"] }
+      ]
+    }
+  ],
+  "sectionTypeMap": {
+    "hero-full-bleed": { "primary": ["mesh-gradient", "background-paths"], "secondary": ["char-stagger", "button"] },
+    "hero-split": { "primary": ["visual-placeholder", "globe"], "secondary": ["char-stagger", "button"] },
+    "hero-minimal": { "primary": ["background-elements"], "secondary": ["char-stagger", "button"] },
+    "hero-video": { "primary": ["video-hero"], "secondary": ["blur-text", "button"] },
+    "features-grid": { "primary": ["bento-grid"], "secondary": ["section-reveal"] },
+    "features-list": { "primary": ["section-reveal"], "secondary": null },
+    "stats-block": { "primary": ["data-viz-burst", "char-stagger"], "secondary": ["section-reveal"] },
+    "process-steps": { "primary": ["section-reveal"], "secondary": ["visual-placeholder"] },
+    "social-proof": { "primary": ["bento-grid"], "secondary": ["logo-ticker"] },
+    "logo-strip": { "primary": ["logo-ticker"], "secondary": null },
+    "cta-full-bleed": { "primary": ["mesh-gradient"], "secondary": ["button"] },
+    "cta-inline": { "primary": ["section-reveal"], "secondary": ["button"] },
+    "contact-form": { "primary": ["background-elements"], "secondary": ["button"] },
+    "case-study-preview": { "primary": ["visual-placeholder"], "secondary": ["section-reveal"] },
+    "globe-feature": { "primary": ["globe"], "secondary": ["char-stagger"] },
+    "loading-screen": { "primary": ["preloader"], "secondary": null },
+    "work-showcase": { "primary": ["parallax-gallery"], "secondary": ["section-reveal"] }
+  },
+  "toneModifiers": {
+    "dark-luxury": { "bg": "#080808", "accent": "#C6F135", "prefer": ["mesh-gradient", "magnetic-button", "video-hero", "preloader", "blur-text"], "avoid": ["background-elements"] },
+    "editorial": { "bg": "#F9F9F6", "accent": "#A3FF00", "prefer": ["background-paths", "blur-text"], "avoid": ["mesh-gradient", "globe"] },
+    "clinical": { "bg": "#0a0a0a", "accent": "#ffffff", "prefer": ["background-elements"], "avoid": ["mesh-gradient", "background-paths"] },
+    "tech": { "bg": "#080808", "accent": "#3B82F6", "prefer": ["background-elements", "globe"], "avoid": ["mesh-gradient"] }
+  }
+}
