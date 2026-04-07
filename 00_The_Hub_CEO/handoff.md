@@ -6,6 +6,39 @@
 
 ## Last Session
 
+**Agent:** Claude (Claude Code)
+**Date:** 2026-04-07
+**Session Type:** Preloader + Case Study Pages + Real Screenshots
+
+### What Was Done
+- Built `src/components/motion/Preloader.tsx` — GSAP fade-out, rAF counter 000→100, progress bar, logo, sessionStorage guard (shows once per session)
+- Wired `<Preloader />` into `src/app/layout.tsx`
+- Built `src/app/work/[slug]/page.tsx` — SSG case study detail pages via `generateStaticParams`
+  - `/work/linear` — Linear.app public audit: 6 findings (3 critical), 5 phases, methodology, stats strip
+  - `/work/mukamal-web` — Internal redesign case study: 5 findings, 5 phases, stats, outcome
+- Copied real audit screenshots from `01_Audit_Engine/` → `public/work/[brand]/desktop.png + mobile.png`
+  - `linear`: from `01_Audit_Engine/linear/media/`
+  - `mukamal-web`: from `01_Audit_Engine/mukamal-v3-home/media/`
+- Build: 7 routes, zero TS errors, all SSG
+
+### Current State
+- **04_Mukamal_Web:** 7 routes (/, /about, /work, /contact, /work/linear, /work/mukamal-web, /_not-found)
+- **Light mode default:** ✅ Warm cream bg, dark forest green text, logo auto-switches
+- **Preloader:** ✅ Wired, shows once per session, degrades gracefully on reduced-motion
+- **Case studies:** ✅ 2 SSG pages with real screenshots, findings, methodology, process phases
+
+### Open Threads
+- Only 2 case studies built — could add web3-wallets when audit data is available
+- `01_Audit_Engine/` folder structure still inconsistent (not all brands follow `[brand]/media/` pattern)
+- Work page filter tabs still show 3 case study cards but only 2 slugs resolve
+
+### Next Recommended Action
+1. Update `/work/page.tsx` case study cards to link to the correct `/work/linear` and `/work/mukamal-web` slugs
+2. Add a third case study (web3-wallets) when screenshots are available in `01_Audit_Engine/`
+3. Merge `claude/xenodochial-mccarthy` → `main` via PR #2
+
+---
+
 **Agent:** Gemini (Antigravity)
 **Date:** 2026-04-06 (Session 3 — Theme Toggle)
 **Session Type:** Dark/Light Mode Toggle System

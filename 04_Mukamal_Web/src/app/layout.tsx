@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { Preloader } from "@/components/motion/Preloader"
 
 export const metadata: Metadata = {
   title: "Mukamal — Design That Converts",
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className="antialiased noise-overlay min-h-[100dvh]">
+        <Preloader />
         {children}
       </body>
     </html>
