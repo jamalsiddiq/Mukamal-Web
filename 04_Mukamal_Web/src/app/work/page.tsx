@@ -10,28 +10,22 @@ type FilterCategory = "All" | "UX Audit" | "CRO" | "Design Systems"
 
 const CASE_STUDIES = [
   {
-    id: "web3-wallets",
+    id: "linear",
     category: "UX Audit" as FilterCategory,
-    title: "5 WALLETS. 14 CRITICAL FAILURES. ONE REPORT.",
-    client: "Web3 Ecosystem",
-    outcome: "Average UX score lifted 20.8 points after Mukamal corrections.",
-    slug: "/work/web3-wallets",
-  },
-  {
-    id: "linear-audit",
-    category: "UX Audit" as FilterCategory,
-    title: "A PUBLIC AUDIT OF ONE OF THE MOST-LOVED B2B TOOLS.",
+    title: "LINEAR'S ONBOARDING HIDES ITS BEST FEATURE.",
     client: "Linear.app",
-    outcome: "Heuristic analysis across 8 screens, 5 frameworks. Full synthesis in progress.",
-    slug: "/work/linear-audit",
+    outcome: "12 screens audited, 9 friction findings, 3 critical failures. Onboarding friction reduces trial→paid by 18–24%.",
+    slug: "/work/linear",
+    cover: "/work/linear/desktop.png",
   },
   {
     id: "mukamal-web",
     category: "Design Systems" as FilterCategory,
-    title: "REBUILDING THE AGENCY SITE FROM A 76% FAILURE RATE TO BRAND-ACCURATE.",
+    title: "BUILDING THE AUDIT STUDIO THAT AUDITS ITSELF.",
     client: "Mukamal",
-    outcome: "Full @theme token overhaul. Stripe defaults removed. Dark luxury enforced.",
-    slug: "/work/mukamal-redesign",
+    outcome: "Migrated from vanilla HTML to Next.js 15 component architecture. 7 brand components, 20 registered, zero TS errors.",
+    slug: "/work/mukamal-web",
+    cover: "/work/mukamal-web/desktop.png",
   },
 ]
 
@@ -47,7 +41,7 @@ export default function WorkPage() {
       {/* Header */}
       <div
         className="relative pt-40 pb-20 overflow-hidden"
-        style={{ backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)`, backgroundSize: "32px 32px" }}
+        style={{ backgroundImage: `radial-gradient(circle, rgba(30,58,47,0.06) 1px, transparent 1px)`, backgroundSize: "32px 32px" }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, var(--color-background) 30%, transparent 100%)" }} aria-hidden="true" />
         <div className="container relative z-10">
@@ -72,7 +66,7 @@ export default function WorkPage() {
                 style={{
                   borderColor: activeFilter === f ? "var(--color-accent)" : "var(--color-border)",
                   color: activeFilter === f ? "var(--color-accent)" : "var(--color-text-muted)",
-                  background: activeFilter === f ? "rgba(198,241,53,0.06)" : "transparent",
+                  background: activeFilter === f ? "var(--color-accent-08)" : "transparent",
                 }}
                 aria-pressed={activeFilter === f}
               >
@@ -89,9 +83,18 @@ export default function WorkPage() {
                 className="group block bg-[var(--color-background)] border border-[var(--color-border)] hover:border-[rgba(198,241,53,0.2)] transition-all duration-300 cursor-pointer"
               >
                 <div className="relative aspect-[2/1] overflow-hidden bg-[var(--color-bg-elevated)]">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-xs uppercase tracking-widest opacity-20">Case Study</span>
-                  </div>
+                  {study.cover ? (
+                    <Image
+                      src={study.cover}
+                      alt={`${study.client} case study`}
+                      fill
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-mono text-xs uppercase tracking-widest opacity-20">Case Study</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-4">

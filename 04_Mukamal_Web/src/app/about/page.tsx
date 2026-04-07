@@ -49,7 +49,7 @@ export default function AboutPage() {
       <div
         ref={headerRef}
         className="relative pt-40 pb-24 overflow-hidden"
-        style={{ backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "48px 48px" }}
+        style={{ backgroundImage: `radial-gradient(circle, rgba(30,58,47,0.04) 1px, transparent 1px)`, backgroundSize: "48px 48px" }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, var(--color-background) 30%, transparent 100%)" }} aria-hidden="true" />
         <div className="container relative z-10 max-w-4xl">

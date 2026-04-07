@@ -61,7 +61,7 @@ export function HeroFullBleed({
     <section ref={sectionRef} className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden">
       <div
         className="hero-grid absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)`, backgroundSize: "40px 40px" }}
+        style={{ backgroundImage: `radial-gradient(circle, rgba(30,58,47,0.05) 1px, transparent 1px)`, backgroundSize: "40px 40px" }}
         aria-hidden="true"
       />
       <div
