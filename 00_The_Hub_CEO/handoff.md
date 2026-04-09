@@ -7,6 +7,199 @@
 ## Last Session
 
 **Agent:** Claude (Claude Code)
+**Date:** 2026-04-07
+**Session Type:** Preloader + Case Study Pages + Real Screenshots
+
+### What Was Done
+- Built `src/components/motion/Preloader.tsx` — GSAP fade-out, rAF counter 000→100, progress bar, logo, sessionStorage guard (shows once per session)
+- Wired `<Preloader />` into `src/app/layout.tsx`
+- Built `src/app/work/[slug]/page.tsx` — SSG case study detail pages via `generateStaticParams`
+  - `/work/linear` — Linear.app public audit: 6 findings (3 critical), 5 phases, methodology, stats strip
+  - `/work/mukamal-web` — Internal redesign case study: 5 findings, 5 phases, stats, outcome
+- Copied real audit screenshots from `01_Audit_Engine/` → `public/work/[brand]/desktop.png + mobile.png`
+  - `linear`: from `01_Audit_Engine/linear/media/`
+  - `mukamal-web`: from `01_Audit_Engine/mukamal-v3-home/media/`
+- Build: 7 routes, zero TS errors, all SSG
+
+### Current State
+- **04_Mukamal_Web:** 7 routes (/, /about, /work, /contact, /work/linear, /work/mukamal-web, /_not-found)
+- **Light mode default:** ✅ Warm cream bg, dark forest green text, logo auto-switches
+- **Preloader:** ✅ Wired, shows once per session, degrades gracefully on reduced-motion
+- **Case studies:** ✅ 2 SSG pages with real screenshots, findings, methodology, process phases
+
+### Open Threads
+- Only 2 case studies built — could add web3-wallets when audit data is available
+- `01_Audit_Engine/` folder structure still inconsistent (not all brands follow `[brand]/media/` pattern)
+- Work page filter tabs still show 3 case study cards but only 2 slugs resolve
+
+### Next Recommended Action
+1. Update `/work/page.tsx` case study cards to link to the correct `/work/linear` and `/work/mukamal-web` slugs
+2. Add a third case study (web3-wallets) when screenshots are available in `01_Audit_Engine/`
+3. Merge `claude/xenodochial-mccarthy` → `main` via PR #2
+
+---
+
+**Agent:** Gemini (Antigravity)
+**Date:** 2026-04-06 (Session 3 — Theme Toggle)
+**Session Type:** Dark/Light Mode Toggle System
+
+### What Was Done
+- Created `src/components/nav-light.tsx` — shared `<LightNav>` component for all light-theme pages
+  - Transparent on load, frosted glass on scroll (scroll-reactive)
+  - Active page link highlighted in lime accent
+  - Hover states with smooth color transitions
+  - Properly visible on white backgrounds at all scroll positions
+- Swapped inline `Nav()` components in: `/work/page.tsx`, `/about/page.tsx`, `/work/[slug]/page.tsx`
+- Fixed dot-grid background color on all light pages (was `rgba(255,255,255,0.03)` = invisible, now `rgba(0,0,0,0.05)` = correctly subtle)
+- Verified all pages in browser:
+  - `/work` ✅ — "Work" in lime, visible dark nav links, white background, dot grid visible
+  - `/about` ✅ — "About" in lime, clean white hero, typography correct
+  - `/work/web3-wallets` ✅ — nav fully visible, breadcrumb in lime, hero legible
+  - `/contact` ✅ — "Contact" in lime, consistent
+- Committed: 4 files changed (3 pages + 1 new NavLight component)
+
+### Current State (as of this session)
+- **04_Mukamal_Web:** 3 commits on `main`
+  - Commit 1: Claude Code baseline (104 files)
+  - Commit 2: 4 motion components + 3 case study detail pages
+  - Commit 3: LightNav + light page fixes
+- **Nav:** Fully consistent across all pages — dark pages use inline dark Nav, light pages use `<LightNav>`
+- **Light theme:** Working correctly on `/work`, `/about`, `/contact`, `/work/[slug]`
+- **Dark theme:** Homepage (`/`) unaffected — still using its own dark-theme Nav inline
+- **Motion components:** ✅ All 4 built (preloader, blur-text, parallax-gallery, video-hero)
+- **Case Studies:** ✅ 3 SSG routes built as `work/[slug]`
+
+### Open Threads (Unchanged from prior session)
+- Preloader not yet wired into `layout.tsx`
+- Case study cover images are still placeholders — real screenshots from `01_Audit_Engine/` not imported
+- `01_Audit_Engine/` folder structure inconsistent — needs `[brand]/media/` + `[brand]/reports/` pattern
+
+### Next Recommended Action
+1. Wire `<Preloader>` into `src/app/layout.tsx` (client component, mount-level)
+2. Copy real audit screenshots from `01_Audit_Engine/` → `/public/work/[slug]/` and update `coverImage` in the case study data
+3. Restructure `01_Audit_Engine/` to standardized output pattern
+
+---
+
+
+
+### What Was Done
+- Committed all Claude Code work from previous session (104 files, baseline commit)
+- Built 4 advanced motion components as TSX files:
+  - `preloader.tsx` — full-screen split-curtain reveal with GSAP timeline + counter tick
+  - `blur-text.tsx` — character-level blur→sharp reveal with ScrollTrigger, preserves word spacing
+  - `parallax-gallery.tsx` — 3-column masonry with independent per-column GSAP scrub depth
+  - `video-hero.tsx` — full-bleed video background hero with scroll parallax + entrance animations
+  - All 4 wrapped in `prefers-reduced-motion` guards
+- Built `/work/[slug]` dynamic case study detail pages via `generateStaticParams`:
+  - `/work/web3-wallets` — 5 wallets audit with 14 findings, phases, methodology
+  - `/work/linear-audit` — Linear.app public audit summary
+  - `/work/mukamal-redesign` — Internal agency site redesign case study
+  - Pages feature: stats strip, outcome callout, phases timeline, severity-coded findings, methodology list, CTA
+- Build verified: **zero TS errors, zero warnings**. All 3 slug routes render as SSG.
+- Committed: 5 files, 1367 insertions
+
+### Current State
+- **04_Mukamal_Web:** 4 pages (/, /about, /work, /contact) + 3 case study detail pages (/work/[slug])
+- **Motion components:** All 4 registered components now implemented as TSX (preloader, blur-text, parallax-gallery, video-hero)
+- **Build:** Clean. Exit code 0.
+- **Git:** 2 commits on `main` in 04_Mukamal_Web
+
+### Open Threads
+- Preloader is built but not yet wired into `layout.tsx` — needs integration decision
+- Case study images use existing `/assets/antigravity/` placeholders — real screenshots from `01_Audit_Engine/` not yet imported
+- `01_Audit_Engine/` folder structure is inconsistent — outputs scattered, not in `[brand]/media/` + `[brand]/reports/` pattern
+- `07_Template_Library` node_modules cleaned (saves ~1.1GB) — `npm install` needed before any template work
+
+### Next Recommended Action
+1. Wire `<Preloader>` into `src/app/layout.tsx` as a client component
+2. Import real audit screenshots from `01_Audit_Engine/` into `/public/work/` and update case study `coverImage` paths
+3. Restructure `01_Audit_Engine/` to conform to `[brand]/media/` + `[brand]/reports/` pattern per Rule 7
+
+---
+
+> **Protocol:** Both Claude (Claude Code) and Gemini (Antigravity) read this file at the start of every session and write to it after completing significant work. This is the cross-agent sync point.
+
+---
+
+## Last Session
+
+**Agent:** Claude (Claude Code)
+**Date:** 2026-04-05
+**Session Type:** Component Extraction + Reference Pattern Taxonomy
+
+### What Was Done
+- Extracted 5 reusable brand components from page.tsx: `HeroFullBleed`, `LogoStrip`, `ServicesBento`, `StatsBlock`, `CTAFullBleed`
+- All components are props-driven (configurable for Website Builder reuse)
+- Ported About, Work, Contact pages from Gate-2 build (Bebas Neue/DM Sans, dark luxury)
+- Extracted shared Nav + Footer into `src/components/brand/`
+- Analyzed all 30 reference prompts → created `09_Website_Builder/engine/reference-patterns.md` taxonomy
+- Created `09_Website_Builder/engine/component-registry.json` (machine-readable, 20 components)
+- Updated `component-selector.md`: added 4 new components (preloader, blur-text, parallax-gallery, video-hero), 3 new section types, fixed stale #635bff
+- Updated content-writer SKILL.md: added DESIGN.md reference, voice directives
+- Updated animator SKILL.md: added DESIGN.md reference
+- Copied engine files (component-selector.md, template-adapter.md, brand-manifest-schema.md) into worktree
+- Build passes: all 4 routes (/, /about, /work, /contact) generate as static pages
+
+### Current State
+- **04_Mukamal_Web:** Full Next.js 15 site with 4 pages, 7 brand components, shared Nav/Footer. Build clean.
+- **09_Website_Builder/engine:** Complete with component-selector.md (20 components), component-registry.json, reference-patterns.md, template-adapter.md, brand-manifest-schema.md
+- **Skills:** web-master, brand-architect, content-writer, animator all reference DESIGN.md
+- **Component architecture:** All brand components use CSS custom properties only, accept content via props, wrap GSAP in prefers-reduced-motion guards
+
+### Open Threads
+- Advanced motion components (preloader, blur-text, parallax-gallery, video-hero) are registered but not yet implemented as TSX files
+- Case study detail pages (/work/[slug]) not yet built
+- No actual images/videos — placeholder divs only
+- Changes not yet committed to git
+
+### Next Recommended Action
+- Commit all changes and create PR
+- Implement the 4 advanced motion components as TSX files
+- Build case study detail pages with actual content from 01_Audit_Engine
+
+---
+
+## Previous Session
+
+**Agent:** Claude (Claude Code)
+**Date:** 2026-04-05
+**Session Type:** Tech Framework Overhaul
+
+### What Was Done
+- Rewrote DESIGN.md → Dark Luxury theme, Bebas Neue/DM Sans/Space Mono font stack
+- Synced mukamal-theme.json (07_Template_Library) with new DESIGN.md tokens
+- Updated brand-tokens.json to v2.0.0 matching DESIGN.md
+- Updated web-master SKILL.md: single-file HTML → Next.js 15 architecture
+- Updated brand-architect SKILL.md: removed stale #FFE600 yellow, added DESIGN.md reference
+- Initialized Next.js 15 + Tailwind v4 project in 04_Mukamal_Web
+- Ported Gate-2 homepage with Bebas Neue/DM Sans (replaces Instrument Serif/Manrope)
+- Created canonical globals.css with full dark luxury token layer
+- Build passes: zero TS errors, zero warnings
+- Added cross-pillar skill mapping to CLAUDE.md and Gemini.md
+- Created 02_Case_Study_Factory directory
+- Added .gitignore
+
+### Current State
+- **04_Mukamal_Web:** Now a Next.js 15 project. Homepage renders. Old HTML archived in `_archive/`.
+- **DESIGN.md:** Canonical dark luxury system, Stitch-format, machine-readable
+- **Skills:** web-master + brand-architect updated to reference DESIGN.md
+- **Agent configs:** Both CLAUDE.md and Gemini.md have cross-pillar mapping + design system section
+
+### Open Threads
+- Resolved: About, Work, Contact pages ported
+- Resolved: Components extracted to brand/
+- Resolved: Reference pattern taxonomy created
+- Resolved: Component registry formalized
+
+### Next Recommended Action
+- (Resolved — see latest session above)
+
+---
+
+## Previous Session
+
+**Agent:** Claude (Claude Code)
 **Date:** 2026-04-05
 **Session Type:** Project Review
 

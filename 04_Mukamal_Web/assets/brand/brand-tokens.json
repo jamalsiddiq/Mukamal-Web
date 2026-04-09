@@ -1,23 +1,30 @@
 {
   "brand": "Mukamal",
-  "tagline": "We Design Conversion.",
-  "version": "1.0.0",
+  "tagline": "Design That Converts.",
+  "version": "2.0.0",
+  "source": "04_Mukamal_Web/DESIGN.md (single source of truth)",
 
   "colors": {
-    "bg": "#080808",
-    "bg-elevated": "#0D0D0D",
-    "bg-card": "#111111",
+    "background": "#080808",
+    "bg-elevated": "#0f0f0f",
+    "surface": "rgba(255, 255, 255, 0.03)",
+    "card": "rgba(255, 255, 255, 0.03)",
+    "card-highest": "rgba(255, 255, 255, 0.06)",
     "accent": "#C6F135",
-    "accent-dim": "rgba(198, 241, 53, 0.15)",
-    "accent-glow": "rgba(198, 241, 53, 0.06)",
+    "accent-alt": "#aad306",
+    "accent-contrast": "#0e1a00",
+    "accent-dim": "rgba(198, 241, 53, 0.60)",
+    "accent-subtle": "rgba(198, 241, 53, 0.08)",
+    "accent-glow": "rgba(198, 241, 53, 0.15)",
     "text": "#F0EDE6",
-    "text-dim": "#888888",
-    "error": "#FF4D4D",
-    "success": "#22C55E",
-    "glass": "rgba(255, 255, 255, 0.04)",
-    "glass-hover": "rgba(255, 255, 255, 0.06)",
+    "text-dim": "rgba(240, 237, 230, 0.7)",
+    "text-muted": "rgba(240, 237, 230, 0.5)",
+    "error": "#ff4d4d",
+    "success": "#C6F135",
     "border": "rgba(255, 255, 255, 0.08)",
-    "border-hover": "rgba(255, 255, 255, 0.12)"
+    "border-hover": "rgba(255, 255, 255, 0.15)",
+    "glass-bg": "rgba(255, 255, 255, 0.03)",
+    "glass-border": "rgba(255, 255, 255, 0.08)"
   },
 
   "typography": {
@@ -46,52 +53,61 @@
   "spacing": {
     "unit": 8,
     "scale": {
-      "xs": "8px",
-      "sm": "16px",
-      "md": "24px",
-      "lg": "32px",
-      "xl": "48px",
-      "2xl": "64px",
-      "3xl": "80px",
-      "4xl": "120px",
-      "5xl": "160px"
+      "1": "8px",
+      "2": "16px",
+      "3": "24px",
+      "4": "32px",
+      "6": "48px",
+      "8": "64px",
+      "12": "96px",
+      "16": "128px",
+      "24": "192px"
     }
   },
 
   "layout": {
-    "max-width": "1400px",
-    "content-padding": "48px",
-    "content-padding-mobile": "24px",
+    "container-max": "1280px",
+    "container-wide": "1440px",
+    "gutter": "clamp(1.5rem, 4vw, 3rem)",
     "grid-columns": { "desktop": 12, "mobile": 4 },
-    "grid-gutter": "24px"
+    "grid-gap": "24px"
   },
 
   "radius": {
-    "sm": "8px",
-    "md": "16px",
-    "lg": "24px",
-    "pill": "100px"
+    "sm": "4px",
+    "md": "8px",
+    "lg": "16px",
+    "xl": "24px",
+    "full": "9999px"
   },
 
   "shadows": {
-    "card-hover": "0 8px 32px rgba(0, 0, 0, 0.3)",
-    "glow": "0 0 40px rgba(198, 241, 53, 0.1)",
-    "hero": "0 40px 100px rgba(0, 0, 0, 0.5)"
+    "card": "0 1px 2px rgba(0,0,0,0.6), 0 4px 24px rgba(0,0,0,0.4)",
+    "glow": "0 0 40px rgba(198, 241, 53, 0.05), 0 0 80px rgba(198, 241, 53, 0.03)",
+    "elevated": "0 8px 40px rgba(0, 0, 0, 0.6)",
+    "neon": "0 0 24px rgba(198, 241, 53, 0.12)"
+  },
+
+  "glass": {
+    "bg": "rgba(255, 255, 255, 0.03)",
+    "blur": "blur(10px)",
+    "border": "1px solid rgba(255, 255, 255, 0.08)"
   },
 
   "opacity": {
     "headline": 1.0,
     "subheading": 0.7,
     "body": 0.87,
-    "label": 0.6
+    "label": 0.5
   },
 
   "animation": {
     "easing": {
+      "out": "cubic-bezier(0.2, 0, 0, 1)",
+      "in-out": "cubic-bezier(0.65, 0, 0.35, 1)",
       "reveal": "power3.out",
-      "state-change": "power2.inOut",
-      "playful": "elastic.out(1, 0.3)",
-      "hero": "power4.out"
+      "hero": "power4.out",
+      "playful": "elastic.out(1, 0.3)"
     },
     "duration": {
       "hero-total": 1.5,
@@ -107,6 +123,12 @@
     }
   },
 
+  "noise": {
+    "opacity": 0.04,
+    "base-frequency": 0.9,
+    "octaves": 4
+  },
+
   "logo": {
     "nav-size": "48px",
     "footer-size": "24px",
@@ -115,11 +137,5 @@
       "light": "assets/brand/logo-light.png",
       "dark": "assets/brand/logo-dark.png"
     }
-  },
-
-  "noise": {
-    "opacity": 0.035,
-    "base-frequency": 0.85,
-    "octaves": 4
   }
 }
